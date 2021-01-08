@@ -1,0 +1,27 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Factory.Models.Machine;
+
+<h2>Machine Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Model): @Html.DisplayFor(model => model.Model)</h3>
+
+@if(@Model.Engineers.Count == 0)
+{
+  <p>No specialists assined to machine</p>
+}
+else
+{
+  <h4>Machine specialists:</h4>
+  <ul>
+  @foreach(var join in Model.Engineers)
+  {
+    <li>@join.Engineer.Name</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("See machines", "Index")</p>
+<p>@Html.ActionLink("Add specialist", "AddEngineer", new { id = Model.MachineId })</p>
