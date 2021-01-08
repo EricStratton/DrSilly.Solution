@@ -35,8 +35,6 @@ namespace Factory.Migrations
 
                     b.Property<string>("Model");
 
-                    b.Property<string>("State");
-
                     b.HasKey("MachineId");
 
                     b.ToTable("Machines");

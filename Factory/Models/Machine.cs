@@ -7,20 +7,10 @@ namespace Factory.Models
     public Machine()
     {
       this.Engineers = new HashSet<MachineEngineer>();
-      State = "operational";
     }
 
     public int MachineId { get; set; }
     public string Model { get; set; }
-    public States State { get; set; }
-
-    public enum States
-    {
-      operational,
-      malfunctioning,
-      underrepair
-    }
-    
 
     public ICollection<MachineEngineer> Engineers { get; set; }
   }
