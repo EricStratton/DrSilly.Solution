@@ -12,7 +12,14 @@ namespace Factory.Models
 
     public int MachineId { get; set; }
     public string Model { get; set; }
-    public string State { get; set; }
+    public States State { get; set; }
+
+    public enum States
+    {
+      operational,
+      malfunctioning,
+      underrepair
+    }
     
 
     public ICollection<MachineEngineer> Engineers { get; set; }

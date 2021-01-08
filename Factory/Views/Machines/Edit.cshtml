@@ -14,6 +14,17 @@
 
   @Html.LabelFor(model => model.Model)
   @Html.EditorFor(model => model.Model)
+
+  @Html.LabelFor(model => model.State)
+  @Html.DropDownList(model => model.State,
+          new SelectList(Enum.GetValues(typeof(States))))
+      
+  @* <select name ="model.State">
+    <option value="operational">operational</option>
+    <option value="malfuction">malfuction</option>
+    <option value="under repair">under repair</option>
+  </select> *@
+  
   <input type="submit" value ="Save" />
 }
 
