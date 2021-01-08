@@ -1,0 +1,18 @@
+
+
+@using Factory.Models;
+@model List<Factory.Models.
+
+<h2>Machine Admin</h2>
+
+@if (@Model.Count == 0)
+{
+  <h3>No machines have been added to database</h3>
+}
+
+@foreach (Machine machine in Model)
+{
+  <li>@Html.ActionLink($"{machine.Model}", "Details", new { id = machine.MachineId })<li>
+}
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
