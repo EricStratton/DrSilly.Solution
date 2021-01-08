@@ -10,7 +10,7 @@ namespace Factory.Models
     }
 
     public int LocationId { get; set; }
-    public string Location { get; set; }
+    public string Facility { get; set; }
 
     public ICollection<EngineerLocation> Engineers { get; set; }
   }
