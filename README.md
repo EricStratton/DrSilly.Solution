@@ -1,4 +1,4 @@
-## Dr. SillyStringz Factory Admin Page -- Many-to-Many MySQL Database & C# Webpage
+## Dr. SillyStringz Factory Admin Page -- Many-to-Many MySQL Database
 
 ### _Webpage to create many-to-many relationships between fictional factory equipment and engineers who repiar them_
 
@@ -57,6 +57,16 @@ Use this webpage to create multiple many-to-many relationships which are accessi
 - Navigate to `Factory` directory in your terminal
 - Run command `dotnet ef database update` to generate database based on provided structure
 - If you make changes and want to update database run command `dotnet ef migrations add <MigrationName>`
+
+### Import Database using MySQL Workbench 
+
+- Open MySQL Workbench
+- Navigate to the `Administration` window on the left hand side
+- Use option `Import from Self-Contained File`
+- Set `Default Target Schema` or alternatively make a new schema
+- Select Schema Object from this project's directory
+- In the dropdown select `Dump Structure Only`
+- Click `Start Import`
 
 ### Navigating in Application:
 
