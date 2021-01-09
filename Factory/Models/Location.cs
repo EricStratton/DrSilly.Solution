@@ -12,7 +12,7 @@ namespace Factory.Models
 
     public int LocationId { get; set; }
     public string Facility { get; set; }
-    public List<SelectListLocation> ListLocation { get; set; }
+    
 
     public ICollection<EngineerLocation> Engineers { get; set; }
   }

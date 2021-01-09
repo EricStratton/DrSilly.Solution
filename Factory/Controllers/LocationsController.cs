@@ -16,38 +16,38 @@ namespace Factory.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
-    {
-      List<SelectListLocation> locations = new List<SelectListLocation>();
-      locations.Add(new Location
-      {
-        Facility = "NE",
-        LocationId = 1
-      });
-      locations.Add(new Location
-      {
-        Facility = "SE",
-        LocationId = 2
-      });
-      locations.Add(new Location
-      {
-        Facility = "SW",
-        LocationId = 3
-      });
-      var model = new Location()
-      {
-        Location = locations
-
-      };
-      ViewData["Index"] = location;
-      return View();
-    }
-
     // public ActionResult Index()
     // {
-    //   // List<Location> model = _db.Locations.ToList();
+    //   List<SelectListLocation> locations = new List<SelectListLocation>();
+    //   locations.Add(new Location
+    //   {
+    //     Facility = "NE",
+    //     LocationId = 1
+    //   });
+    //   locations.Add(new Location
+    //   {
+    //     Facility = "SE",
+    //     LocationId = 2
+    //   });
+    //   locations.Add(new Location
+    //   {
+    //     Facility = "SW",
+    //     LocationId = 3
+    //   });
+    //   var model = new Location()
+    //   {
+    //     Location = locations
+
+    //   };
+    //   ViewData["Index"] = location;
     //   return View();
     // }
+
+    public ActionResult Index()
+    {
+      List<Location> model = _db.Locations.ToList();
+      return View();
+    }
 
     // public ActionResult AddEngineer(int id) 
     // {
