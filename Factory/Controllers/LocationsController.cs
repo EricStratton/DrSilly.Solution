@@ -34,6 +34,19 @@ namespace Factory.Controllers
       return View(thisLocation);
     }
 
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Location location)
+    {
+      _db.Locations.Add(location);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
     // public ActionResult AddEngineer(int id) 
     // {
     //   var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
