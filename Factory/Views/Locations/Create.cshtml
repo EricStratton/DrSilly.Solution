@@ -1,0 +1,14 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Factory.Models.Location;
+
+<h4>Add a new facility</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Facility)
+  @Html.TextBoxFor(model => model.Facility)
+  <input type="submit" value="Add new facility" />
+}
+<p>@Html.ActionLink("Show facilities", "Index")</p>
