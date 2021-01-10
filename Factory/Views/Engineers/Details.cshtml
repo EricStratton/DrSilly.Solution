@@ -28,6 +28,26 @@ else
   </ul>
 }
 
+@if(@Model.Locations.Count == 0)
+{
+  <p>Specialist not assigned to a facility</p>
+}
+else
+{
+  <h4>Facilities:</h4>
+  <ul>
+  @foreach(var join in Model.Locations)
+  {
+    <li>@join.Location.Facility</li>
+    @using (Html.BeginForm("DeleteLocation", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.EngineerLocationId)
+        <input type="submit" value="Remove" />
+      }
+  }
+  </ul>
+}
+
 <p>@Html.ActionLink("Add machine", "AddMachine", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Edit engineer", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete engineer", "Delete", new { id = Model.EngineerId })</p>
