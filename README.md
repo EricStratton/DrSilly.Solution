@@ -86,7 +86,7 @@ Use this webpage to create multiple many-to-many relationships which are accessi
 
 ## Known Bugs/Issues
 
-Program is incompletet at this time.
+There are no known bugs at this time.
 
 ## Support & Contact Details
 
