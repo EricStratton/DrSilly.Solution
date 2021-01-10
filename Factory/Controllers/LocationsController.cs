@@ -47,22 +47,22 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult AddEngineer(int id) 
-    // {
-    //   var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
-    //   ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
-    //   return View(thisLocation);
-    // }
+    public ActionResult AddEngineer(int id) 
+    {
+      var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View(thisLocation);
+    }
 
-    // [HttpPost]
-    // public ActionResult AddEngineer(Machine machine, int EngineerId)
-    // {
-    //   if (EngineerId != 0)
-    //   {
-    //     _db.MachineEngineer.Add(new MachineEngineer() { EngineerId = EngineerId, MachineId = machine.MachineId });
-    //   }
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    
+    [HttpPost]
+    public ActionResult AddEngineer(Location location, int EngineerId)
+    {
+      if (EngineerId != 0)
+      {
+        _db.EngineerLocation.Add(new EngineerLocation() { EngineerId = EngineerId, LocationId = location.LocationId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
