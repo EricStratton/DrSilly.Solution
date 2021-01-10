@@ -40,6 +40,8 @@ namespace Factory.Controllers
       var thisEngineer = _db.Engineers
           .Include(engineer => engineer.Machines)
           .ThenInclude(join => join.Machine)
+          .Include(engineer => engineer.Locations)
+          .ThenInclude(join => join.Location)
           .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
@@ -96,6 +98,15 @@ namespace Factory.Controllers
     {
       var joinEntry = _db.MachineEngineer.FirstOrDefault(entry => entry.MachineEngineerId == joinId);
       _db.MachineEngineer.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteLocation(int joinId)
+    {
+      var joinEntry = _db.EngineerLocation.FirstOrDefault(entry => entry.EngineerLocationId == joinId);
+      _db.EngineerLocation.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
