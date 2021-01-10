@@ -1,0 +1,34 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Factory.Models.Location;
+
+<h2>Facility Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Facility): @Html.DisplayFor(model => model.Facility)</h3>
+
+@if(@Model.Engineers.Count == 0)
+{
+  <p>No specialists assined to machine</p>
+}
+else
+{
+  <h4>Machine specialists:</h4>
+  <ul>
+  @foreach(var join in Model.Engineers)
+  {
+    <li>@join.Engineer.Name</li>
+    @using (Html.BeginForm("DeleteEngineer", "Locations"))
+      {
+        @Html.Hidden("joinId", @join.EngineerLocationId)
+        <input type="submit" value="Remove" />
+      }
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add specialist", "AddEngineer", new { id = Model.LocationId })</p>
+@* <p>@Html.ActionLink("Edit machine", "Edit", new { id = Model.MachineId })</p> *@
+@* <p>@Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId })</p> *@
+<p>@Html.ActionLink("See facilities", "Index")</p>
