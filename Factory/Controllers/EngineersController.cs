@@ -102,6 +102,24 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddLocation(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Facility");
+      return View(thisEngineer);
+    }
+
+    [HttpPost]
+    public ActionResult AddLocation(Engineer engineer, int LocationId)
+    {
+      if (LocationId != 0)
+      {
+        _db.EngineerLocation.Add(new EngineerLocation() { LocationId = LocationId, EngineerId = engineer.EngineerId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
     [HttpPost]
     public ActionResult DeleteLocation(int joinId)
     {
