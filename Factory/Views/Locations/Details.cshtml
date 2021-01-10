@@ -10,7 +10,7 @@
 
 @if(@Model.Engineers.Count == 0)
 {
-  <p>No specialists assined to machine</p>
+  <p>No specialists assined to location</p>
 }
 else
 {
@@ -29,5 +29,4 @@ else
 }
 
 <p>@Html.ActionLink("Add specialist", "AddEngineer", new { id = Model.LocationId })</p>
-@* <p>@Html.ActionLink("Delete machine", "Delete", new { id = Model.MachineId })</p> *@
 <p>@Html.ActionLink("See facilities", "Index")</p>
